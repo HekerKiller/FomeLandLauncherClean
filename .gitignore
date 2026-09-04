@@ -1,0 +1,6 @@
+node_modules/
+minecraft/
+FomeLandClient/
+
+*.zip
+*.msi
