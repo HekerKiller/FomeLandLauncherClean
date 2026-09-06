@@ -24,7 +24,8 @@
     "publish": {
       "provider": "github",
       "owner": "HekerKiller",
-      "repo": "FomeLandLauncherClean"
+      "repo": "FomeLandLauncherClean",
+      "releaseType": "release"
     },
     "win": {
       "target": "nsis",
