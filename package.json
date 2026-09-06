@@ -1,21 +1,45 @@
 {
   "name": "martinlauncher",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "Launcher Minecraft personalizado",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "keywords": [],
   "author": "Martin",
   "license": "ISC",
   "type": "commonjs",
+  "build": {
+    "appId": "com.fomeland.launcher",
+    "productName": "FomeLand Launcher",
+    "publish": {
+      "provider": "github",
+      "owner": "HekerKiller",
+      "repo": "FomeLandLauncherClean"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/logo.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "FomeLand Launcher"
+    }
+  },
   "devDependencies": {
-    "electron": "^44.1.1"
+    "electron": "^44.1.1",
+    "electron-builder": "^26.15.3"
   },
   "dependencies": {
+    "@xmcl/core": "^2.15.1",
     "adm-zip": "^0.6.0",
     "axios": "^1.20.0",
+    "electron-updater": "^6.8.9",
     "minecraft-launcher-core": "^3.18.2"
   }
 }
