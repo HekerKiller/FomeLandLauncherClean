@@ -11,6 +11,7 @@ autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = "info";
 
 let ventanaPrincipal;
+let procesoMinecraftActivo = null;
 
 const rutaMinecraft = path.join(app.getPath("appData"), ".FomeLandLauncher");
 const CUSTOM_VERSION = "neoforge-26.2.0.75";
@@ -33,9 +34,6 @@ function createWindow() {
     });
 
     ventanaPrincipal.loadFile("index.html");
-
-    // TEMPORAL: para debug del autoUpdater, sacar después
-    ventanaPrincipal.webContents.openDevTools({ mode: "detach" });
 }
 
 app.whenReady().then(() => {
@@ -49,6 +47,16 @@ app.whenReady().then(() => {
 app.on("window-all-closed", () => {
     if (process.platform !== "darwin") {
         app.quit();
+    }
+});
+
+// Si el launcher se cierra con Minecraft todavía corriendo, matamos el
+// proceso de Java para no dejar handles abiertos que bloqueen archivos
+// (esto es lo que causaba el "No se puede cerrar FomeLand Launcher"
+// al intentar instalar una actualización encima).
+app.on("before-quit", () => {
+    if (procesoMinecraftActivo && !procesoMinecraftActivo.killed) {
+        procesoMinecraftActivo.kill();
     }
 });
 
@@ -344,6 +352,8 @@ ipcMain.handle("abrir-minecraft", async (event, username) => {
         rootPath: rutaMinecraft
     });
 
+    procesoMinecraftActivo = proc;
+
     proc.stdout.on("data", (data) => {
         console.log("[MC]", data.toString());
         enviarProgreso(data.toString());
@@ -360,6 +370,7 @@ ipcMain.handle("abrir-minecraft", async (event, username) => {
     });
 
     proc.on("close", (code) => {
+        procesoMinecraftActivo = null;
         console.log("Minecraft cerrado, código:", code);
         if (ventanaPrincipal) {
             ventanaPrincipal.webContents.send("minecraft-cerrado", code);
