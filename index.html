@@ -3,25 +3,40 @@
 <head>
     <meta charset="UTF-8" />
     <title>FomeLand Launcher</title>
+    <!-- CSP para evitar advertencias de Electron y permitir peticiones de novedades -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.github.com;" />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div class="container">
+    <div class="main-layout">
 
-        <img class="logo" src="assets/logo.ico" alt="FomeLand Logo" />
+        <!-- Panel Izquierdo: Novedades -->
+        <div class="news-panel">
+            <h2>NOVEDADES</h2>
+            <div class="changelog-list" id="changelog-container">
+                <!-- Se llena dinámicamente con renderer.js -->
+            </div>
+        </div>
 
-        <h1>FomeLand Launcher</h1>
+        <!-- Panel Derecho: TU ESTRUCTURA HTML FUNCIONAL EXACTA -->
+        <div class="container">
 
-        <input type="text" id="username" placeholder="Tu nombre de usuario" />
+            <img class="logo" src="assets/logo.ico" alt="FomeLand Logo" />
 
-        <br />
+            <h1>FomeLand</h1>
 
-        <button id="play">JUGAR</button>
+            <input type="text" id="username" placeholder="Tu nombre de usuario" />
 
-        <p id="status"></p>
+            <br />
 
-        <span class="version">v1.0.3</span>
+            <button id="play">JUGAR</button>
+
+            <p id="status"></p>
+
+            <span class="version" id="launcher-version">v1.0.3</span>
+
+        </div>
 
     </div>
 

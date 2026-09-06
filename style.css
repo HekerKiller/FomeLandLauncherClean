@@ -2,43 +2,125 @@
     font-family: 'Minecrafter';
     src: url('assets/fonts/Minecrafter.Reg.ttf');
 }
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
+    padding: 0;
     background-image: url("assets/fondo.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     height: 100vh;
-
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-family: Arial, sans-serif;
-}
-h1 {
-    font-family: 'Minecrafter';
-    font-size: 48px;
-    color:#57008a;
-}
-.version {
-    color:#fdfdfd;
-}
-#status {
-    color: #fdfdfd;
+    overflow: hidden;
 }
 
-.container {
-    text-align: center;
-    background: rgba(0,0,0,.75);
-    padding: 30px;
-    border-radius: 20px;
-    width: 300px;
+/* Layout principal de dos columnas */
+.main-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinea verticalmente para centrar el panel de novedades más pequeño */
+    width: 95%;
+    max-width: 1100px;
+    height: 520px;
+    gap: 25px;
+}
 
+/* --- PANEL IZQUIERDO: NOVEDADES (Reducido ~20% en ancho y alto) --- */
+.news-panel {
+    flex: 1;
+    max-width: 280px; /* Ancho reducido */
+    height: 410px;    /* Altura reducida (antes ocupaba 520px) */
+    background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Título NOVEDADES con resplandor verde suavizado */
+.news-panel h2 {
+    font-family: 'Minecrafter', sans-serif;
+    font-size: 20px;
+    margin: 0 0 12px 0;
+    color: #39a845;
+    text-align: center;
+    text-shadow: 
+        0 0 6px rgba(57, 168, 69, 0.6),
+        0 0 12px rgba(69, 201, 83, 0.4);
+}
+
+.changelog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    padding-right: 6px;
+    height: 100%;
+}
+
+/* Estilos de scrollbar para Novedades */
+.changelog-list::-webkit-scrollbar {
+    width: 5px;
+}
+.changelog-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.changelog-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-left: 3px solid #39a845;
+}
+
+.changelog-card .tag {
+    font-weight: bold;
+    color: #45c953;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.changelog-card .description {
+    margin: 0;
+    font-size: 11px;
+    color: #fdfdfd;
+    line-height: 1.35;
+}
+
+/* --- PANEL DERECHO: CONTAINER ORIGINAL AMPLIADO --- */
+.container {
+    flex: 2;
+    height: 100%; /* Mantiene la altura completa de la interfaz */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    padding: 30px 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.launcher-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .logo {
     width: 120px;
@@ -46,18 +128,38 @@ h1 {
     object-fit: contain;
     image-rendering: pixelated;
     display: block;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 10px auto;
+}
+
+/* Título FomeLand más grande con resplandor sutil */
+h1 {
+    font-family: 'Minecrafter', sans-serif;
+    font-size: 58px;
+    color: #9d4edd;
+    margin: 0;
+    text-shadow: 
+        0 0 8px rgba(157, 78, 221, 0.6),
+        0 0 16px rgba(87, 0, 138, 0.5);
+}
+
+.launcher-controls {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 input {
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
     margin-bottom: 15px;
-    border-radius: 5px;
+    border-radius: 8px;
     border: none;
-    width: 250px;
+    width: 100%;
     text-align: center;
     box-sizing: border-box;
+    outline: none;
 }
 
 button {
@@ -68,6 +170,8 @@ button {
     cursor: pointer;
     background-color: #39a845;
     color: white;
+    width: 100%;
+    transition: background-color 0.2s ease;
 }
 
 button:hover {
@@ -80,7 +184,14 @@ button:disabled {
 }
 
 #status {
-    margin-top: 20px;
+    color: #fdfdfd;
+    margin-top: 15px;
     font-size: 14px;
     opacity: 0.9;
+    min-height: 20px;
+}
+
+.version {
+    color: #fdfdfd;
+    font-size: 13px;
 }
