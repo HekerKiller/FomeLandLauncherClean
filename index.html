@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
     <title>FomeLand Launcher</title>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
     <div class="container">
 
-        <img src="assets/logo.png" class="logo">
+        <img class="logo" src="assets/logo.ico" alt="FomeLand Logo" />
 
-        <h1>FomeLand</h1>
+        <h1>FomeLand Launcher</h1>
 
-        <p class="version">
-            Minecraft 26.2
-        </p>
+        <input type="text" id="username" placeholder="Tu nombre de usuario" />
+
+        <br />
 
         <button id="play">JUGAR</button>
 
-        <p id="status">
-            Listo para jugar
-        </p>
+        <p id="status"></p>
+
+        <span class="version">v1.0.3</span>
 
     </div>
 
     <script src="renderer.js"></script>
-
 </body>
-
 </html>
