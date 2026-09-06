@@ -1,6 +1,6 @@
 {
   "name": "martinlauncher",
-  "version": "2.0.9",
+  "version": "2.1.0",
   "description": "Launcher Minecraft personalizado",
   "main": "main.js",
   "scripts": {
@@ -24,8 +24,7 @@
     "publish": {
       "provider": "github",
       "owner": "HekerKiller",
-      "repo": "FomeLandLauncherClean",
-      "releaseType": "release"
+      "repo": "FomeLandLauncherClean"
     },
     "win": {
       "target": "nsis",
