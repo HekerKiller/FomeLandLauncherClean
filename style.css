@@ -2,6 +2,21 @@
     font-family: 'Minecrafter';
     src: url('assets/fonts/Minecrafter.Reg.ttf');
 }
+body {
+    margin: 0;
+    background-image: url("assets/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+}
 h1 {
     font-family: 'Minecrafter';
     font-size: 48px;

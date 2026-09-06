@@ -1,6 +1,6 @@
 {
   "name": "martinlauncher",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Launcher Minecraft personalizado",
   "main": "main.js",
   "scripts": {
