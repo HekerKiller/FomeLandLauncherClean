@@ -21,12 +21,14 @@
       "!.git/**",
       "!*.log"
     ],
-    "publish": {
-      "provider": "github",
-      "owner": "HekerKiller",
-      "repo": "FomeLandLauncherClean",
-      "draft": false
-    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "HekerKiller",
+        "repo": "FomeLandLauncherClean",
+        "releaseType": "release"
+      }
+    ],
     "win": {
       "target": "nsis",
       "icon": "assets/logo.ico"
