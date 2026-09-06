@@ -6,6 +6,9 @@ const AdmZip = require("adm-zip");
 const axios = require("axios");
 const { lanzarMinecraft } = require("./launcher");
 const { autoUpdater } = require("electron-updater");
+const log = require("electron-log");
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = "info";
 
 let ventanaPrincipal;
 

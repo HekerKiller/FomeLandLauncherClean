@@ -45,6 +45,7 @@
     "@xmcl/core": "^2.15.1",
     "adm-zip": "^0.6.0",
     "axios": "^1.20.0",
+    "electron-log": "^5.4.4",
     "electron-updater": "^6.8.9",
     "minecraft-launcher-core": "^3.18.2"
   }
