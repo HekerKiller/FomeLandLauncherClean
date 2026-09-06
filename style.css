@@ -4,10 +4,7 @@
 }
 body {
     margin: 0;
-    background-image: url("assets/fondo.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #1e1e1e;
 
     height: 100vh;
 
