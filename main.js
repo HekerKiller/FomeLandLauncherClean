@@ -33,6 +33,9 @@ function createWindow() {
     });
 
     ventanaPrincipal.loadFile("index.html");
+
+    // TEMPORAL: para debug del autoUpdater, sacar después
+    ventanaPrincipal.webContents.openDevTools({ mode: "detach" });
 }
 
 app.whenReady().then(() => {
