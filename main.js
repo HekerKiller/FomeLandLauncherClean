@@ -14,7 +14,7 @@ let ventanaPrincipal;
 let procesoMinecraftActivo = null;
 
 const rutaMinecraft = path.join(app.getPath("appData"), ".FomeLandLauncher");
-const CUSTOM_VERSION = "neoforge-26.2.0.75";
+const CUSTOM_VERSION = "neoforge-26.2.0.88";
 
 const MANIFEST_URL = "https://raw.githubusercontent.com/HekerKiller/FomeLandLauncherClean/main/version.json";
 
