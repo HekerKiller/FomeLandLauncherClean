@@ -2,3 +2,4 @@ node_modules/
 dist/
 downloads/
 *.log
+download/

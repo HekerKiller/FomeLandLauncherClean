@@ -1,6 +1,6 @@
 {
-  "clientVersion": "1.0.6",
+  "clientVersion": "1.0.7",
   "zipUrl": "https://github.com/HekerKiller/ModPack/releases/latest/download/FomeLandClient.zip",
-  "neoforgeVersion": "26.2.0.75",
+  "neoforgeVersion": "26.2.0.88",
   "installerUrl": "https://github.com/HekerKiller/ModPack/releases/latest/download/neoforge-26.2.0.75-installer.jar"
 }
